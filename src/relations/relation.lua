@@ -21,24 +21,13 @@ function Relation:new(o)
 end
 
 --- Calculates relation for first character towards second character.
--- @param char1: first character
--- @param char2: second character
+-- @param char1: First character
+-- @param char2: Second character
 function Relation:calculate(char1,char2)
   local properties = char2.properties
   local checks = char1.checkProperties
   
   for i,p in pairs(properties) do
-    for i2,c in pairs(checks) do
-      if c.property.name == p.property.name then --Try to find properties that char1 cares about
-        local modValue = c.multip * p.level
-        
-        local modifier = {}
-        modifier.name = c.property.name
-        modifier.multip = c.multip
-        modifier.level = p.level
-        modifier.desc = c.property.desc
-        table.insert(self.modifiers, modifier)
-      end
-    end
+    -- TODO moved old stuff to CharProperty, now have to write new code to utilize it. Coming soon...
   end
 end
