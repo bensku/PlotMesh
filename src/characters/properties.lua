@@ -8,7 +8,7 @@ CharProperty.name = "default"
 CharProperty.level = 1
 --- Description CODE for property. Full description should gotten using that code.
 CharProperty.desc = nil
---- Is normal handling used even if target doesn't care about property
+--- Is normal handling used even if target doesn't care about property.
 -- Custom handling for that needs function override.
 CharProperty.noCareCheck = false
 
