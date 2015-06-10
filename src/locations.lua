@@ -6,10 +6,11 @@
 -- @type location
 Location = {}
 
-function Location:new(o)
+function Location:new(name,o)
   o = o or {}
   setmetatable(o, self)
   self.__index = self;
+  self.name = name
   return o
 end
 

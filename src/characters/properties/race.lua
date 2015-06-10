@@ -1,4 +1,7 @@
---- Race property
+-- Race property
+
+require "localization"
+require "characters.properties"
 
 --- Race for the character.
 CharRace = CharProperty:new()

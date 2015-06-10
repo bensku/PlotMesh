@@ -1,5 +1,8 @@
 -- Relations between characters
 
+require "characters.properties"
+require "characters.character"
+
 --- Relation between two characters.
 -- Contains relation modifiers, and stores consequences of them (TODO do these classes...)
 -- Relations are short lived objects. They're calculated using Character, and possibly

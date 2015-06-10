@@ -1,3 +1,6 @@
+--
+
+require "characters.properties"
 
 --- Wealth properties for character
 -- Wealth properties contain rank in the society, owned money etc.

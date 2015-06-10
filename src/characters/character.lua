@@ -1,5 +1,7 @@
 -- Base character
 
+require "character.properties"
+
 --- Character.
 -- @type character
 Character = {}

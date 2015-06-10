@@ -1,5 +1,7 @@
 -- Character properties
 
+require "character"
+
 --- Character property
 -- @type CharProperty
 CharProperty = {}
