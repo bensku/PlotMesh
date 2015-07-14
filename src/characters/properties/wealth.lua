@@ -7,7 +7,7 @@ require "characters.properties"
 -- 
 -- TODO only stuff needed by namegen-life is here currently
 -- @type #WealthProp
-WealthProp = CharProperty:new();
+local WealthProp = CharProperty:new();
 
 --- Rank of the character in his/her own society.
 -- It can be considered when generating name, clothes etc. Also other characters
@@ -26,3 +26,5 @@ WealthProp.money = 0
 -- How much the world will change if the character is killed/saved/turn evil etc.
 -- Negative values are ignored.
 WealthProp.importance = 0
+
+return WealthProp

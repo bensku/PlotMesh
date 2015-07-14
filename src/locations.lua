@@ -4,7 +4,7 @@
 -- Abstract location, maybe city or something like that. May or may not contain
 -- coordinate data to actually get the location.
 -- @type location
-Location = {}
+local Location = {}
 
 function Location:new(name,o)
   o = o or {}
@@ -26,3 +26,5 @@ Location.location_SO = {}
 Location.namingRules = {}
 
 -- TODO placeholder for namegen-life
+
+return Location

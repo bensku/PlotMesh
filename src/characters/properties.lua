@@ -4,7 +4,7 @@ require "character"
 
 --- Character property
 -- @type CharProperty
-CharProperty = {}
+local CharProperty = {}
 --- Name of property. If default, relation calculation will fail.
 CharProperty.name = "default"
 CharProperty.level = 1
@@ -86,7 +86,7 @@ end
 
 --- Special boolean properties for NPCs, not players.
 -- @type NPCflags
-NPCFlags = CharProperty:new()
+local NPCFlags = CharProperty:new()
 NPCFlags.name = "npcFlags"
 
 --- Is character excluded from plot mesh.
@@ -113,7 +113,7 @@ NPCFlags.questKeeper = false
 --- NPC aggro controller.
 -- Controls which characters NPC tries to attack
 -- @type NPCAggro
-NPCAggro = CharProperty:new()
+local NPCAggro = CharProperty:new()
 NPCAggro.name = "aggro"
 
 --- Is aggro enabled.
@@ -134,3 +134,5 @@ NPCAggro.relation = -1000
 -- List of properties, which make NPC attack another character
 -- regardless of their relations.
 NPCAggro.forceAttack = {}
+
+return CharProperty -- TODO Fix other classes here

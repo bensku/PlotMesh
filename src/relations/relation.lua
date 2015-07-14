@@ -10,7 +10,7 @@ require "characters.character"
 -- be changed without re-instantiating; sometimes very quick changes are needed.
 -- 
 -- @type relation
-Relation = {}
+local Relation = {}
 --- Modifiers.
 -- Array of modifiers.
 Relation.modifiers = {}
@@ -34,3 +34,5 @@ function Relation:calculate(char1,char2)
     -- TODO moved old stuff to CharProperty, now have to write new code to utilize it. Coming soon...
   end
 end
+
+return Relation

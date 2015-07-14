@@ -18,3 +18,5 @@ RaceLocal.singular = "human"
 RaceLocal.plural = "humans"
 
 -- TODO add relation modifiers
+
+return CharRace -- TODO Fix RaceLocal

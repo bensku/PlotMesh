@@ -2,7 +2,7 @@
 
 --- Localization object.
 -- @type #localization
-Localization = {}
+local Localization = {}
 
 function Localization:new(o)
   o = o or {}
@@ -13,3 +13,5 @@ end
 
 --- Language code.
 Localization.lang = "en_US"
+
+return Localization

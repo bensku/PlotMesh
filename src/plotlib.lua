@@ -6,4 +6,4 @@ local pathExtensions = "./?;./?.lua"
 
 pathExtensions = pathExtensions .. ";" .. plotlib_init.pathExtensions
 
-LUA_PATH = LUA_PATH .. ";" .. pathExtensions
+package.path = package.path .. ";" .. pathExtensions

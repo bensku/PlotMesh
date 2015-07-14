@@ -4,7 +4,7 @@ require "character.properties"
 
 --- Character.
 -- @type character
-Character = {}
+local Character = {}
 Character.relations = {}
 --- List of character's properties.
 -- @field #number
@@ -24,3 +24,5 @@ function Character:new(o)
   self.__index = self;
   return o
 end
+
+return Character
