@@ -1,10 +1,13 @@
 -- Character properties
 
-require "character"
+import "character.character"
+
+local module = libimport.module()
 
 --- Character property
 -- @type CharProperty
 local CharProperty = {}
+module:add(CharProperty, "CharProperty")
 --- Name of property. If default, relation calculation will fail.
 CharProperty.name = "default"
 CharProperty.level = 1
@@ -34,7 +37,7 @@ end
 -- @param #character char2: Character that is considered by the other one
 -- @return #modifier: Modifier
 function CharProperty:getModifier(char1, char2)
-  local prop1 = char1.properties[self.name]
+  local prop1 = char1.checkProperties[self.name]
   local prop2 = char2.properties[self.name]
   
   if prop1 == nil and self.noCareCheck == false then
@@ -64,9 +67,7 @@ function CharProperty:getTotalAmount(multip, level)
 end
 
 --- Returns description of property or nil if default one is wanted.
--- @param #character char1: Character 1
--- @param #character char2: Character 2
-function CharProperty:getDescription(char1, char2)
+function CharProperty:getDescription()
   return nil
 end
 
@@ -76,7 +77,7 @@ function CharProperty:calculateModifier(prop1, prop2)
   modifier.multip = self:getMultip(prop1)
   modifier.level = self:getLevel(prop2)
   modifier.amount = self:getTotalAmount(modifier.multip, modifier.level)
-  modifier.desc = self:getDescription(char1,char2) or self.desc
+  modifier.desc = self:getDescription() or self.desc
   return modifier
 end
 
@@ -87,6 +88,7 @@ end
 --- Special boolean properties for NPCs, not players.
 -- @type NPCflags
 local NPCFlags = CharProperty:new()
+module:add(NPCFlags, "NPCFlags")
 NPCFlags.name = "npcFlags"
 
 --- Is character excluded from plot mesh.
@@ -114,6 +116,7 @@ NPCFlags.questKeeper = false
 -- Controls which characters NPC tries to attack
 -- @type NPCAggro
 local NPCAggro = CharProperty:new()
+module:add(NPCAggro, "NPCAggro")
 NPCAggro.name = "aggro"
 
 --- Is aggro enabled.
@@ -135,4 +138,4 @@ NPCAggro.relation = -1000
 -- regardless of their relations.
 NPCAggro.forceAttack = {}
 
-return CharProperty -- TODO Fix other classes here
+return module

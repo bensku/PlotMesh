@@ -1,13 +1,16 @@
---
+-- Character properties
 
-require "characters.properties"
+import "characters.properties"
+
+local module = libimport.module()
 
 --- Wealth properties for character
 -- Wealth properties contain rank in the society, owned money etc.
 -- 
 -- TODO only stuff needed by namegen-life is here currently
 -- @type #WealthProp
-local WealthProp = CharProperty:new();
+local WealthProp = CharProperty:new()
+module:add(WealthProp, "WealthProp")
 
 --- Rank of the character in his/her own society.
 -- It can be considered when generating name, clothes etc. Also other characters
@@ -27,4 +30,4 @@ WealthProp.money = 0
 -- Negative values are ignored.
 WealthProp.importance = 0
 
-return WealthProp
+return module

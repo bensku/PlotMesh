@@ -1,7 +1,9 @@
 -- Relations between characters
 
-require "characters.properties"
-require "characters.character"
+import "characters.properties"
+import "characters.character"
+
+local module = libimport.module()
 
 --- Relation between two characters.
 -- Contains relation modifiers, and stores consequences of them (TODO do these classes...)
@@ -11,6 +13,8 @@ require "characters.character"
 -- 
 -- @type relation
 local Relation = {}
+module:add(Relation, "Relation")
+
 --- Modifiers.
 -- Array of modifiers.
 Relation.modifiers = {}
@@ -24,15 +28,15 @@ function Relation:new(o)
 end
 
 --- Calculates relation for first character towards second character.
--- @param char1: First character
--- @param char2: Second character
+-- @param #character char1: First character
+-- @param #character char2: Second character
 function Relation:calculate(char1,char2)
   local properties = char2.properties
   local checks = char1.checkProperties
   
   for i,p in pairs(properties) do
-    -- TODO moved old stuff to CharProperty, now have to write new code to utilize it. Coming soon...
+    self.modifiers[#self.modifiers+1] = p:getModifier(char1,char2)
   end
 end
 
-return Relation
+return module

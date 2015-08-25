@@ -1,10 +1,13 @@
 -- Base character
 
-require "character.properties"
+import "character.properties"
+
+local module = libimport.module()
 
 --- Character.
 -- @type character
 local Character = {}
+module:add(Character, "Character")
 Character.relations = {}
 --- List of character's properties.
 -- @field #number
@@ -25,4 +28,4 @@ function Character:new(o)
   return o
 end
 
-return Character
+return module

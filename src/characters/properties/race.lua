@@ -1,17 +1,21 @@
 -- Race property
 
-require "localization"
-require "characters.properties"
+import "localization"
+import "characters.properties"
+
+local module = libimport.module()
 
 --- Race for the character.
-CharRace = CharProperty:new()
+local CharRace = CharProperty:new()
+module:add(CharRace, "CharRace")
 
 --- Unlocalized name of the race.
 CharRace.name = "human"
 
 --- Race name localizations.
 -- Values default to humans.
-RaceLocal = Localization:new();
+local RaceLocal = Localization:new()
+module:add(Localization, "Localization")
 
 RaceLocal.singular = "human"
 
@@ -19,4 +23,4 @@ RaceLocal.plural = "humans"
 
 -- TODO add relation modifiers
 
-return CharRace -- TODO Fix RaceLocal
+return module

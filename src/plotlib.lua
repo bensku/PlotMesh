@@ -1,9 +1,14 @@
 -- Library main, should be called before doing anything with it
 
-plotlib = {}
+--- PlotMesh library initializer.
+-- @type initplotlib
+local initplotlib
 
-local pathExtensions = "./?;./?.lua"
+local imports = require "libimport"
 
-pathExtensions = pathExtensions .. ";" .. plotlib_init.pathExtensions
+function initplotlib:init()
+  import = imports.import
+  libimport = imports
+end
 
-package.path = package.path .. ";" .. pathExtensions
+return initplotlib

@@ -1,8 +1,11 @@
 -- Main for all localization files.
 
+local module = libimport.module()
+
 --- Localization object.
 -- @type #localization
 local Localization = {}
+module:add(Localization, "Localization")
 
 function Localization:new(o)
   o = o or {}
@@ -14,4 +17,4 @@ end
 --- Language code.
 Localization.lang = "en_US"
 
-return Localization
+return module

@@ -1,10 +1,13 @@
 -- Locations, for names for example
 
+local module = libimport.module()
+
 --- Place in the world.
 -- Abstract location, maybe city or something like that. May or may not contain
 -- coordinate data to actually get the location.
 -- @type location
 local Location = {}
+module:add(Location, "Location")
 
 function Location:new(name,o)
   o = o or {}
@@ -27,4 +30,4 @@ Location.namingRules = {}
 
 -- TODO placeholder for namegen-life
 
-return Location
+return module
